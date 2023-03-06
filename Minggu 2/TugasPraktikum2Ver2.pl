@@ -33,6 +33,6 @@ orangtua(X, Y) :- anak(Y, X).
 kakeknenek(X, Y) :- anak(Y, P), orangtua(X, P).
 saudara(X, Y) :- orangtua(X, P), anak(P, Y), X\=Y.
 ipar(X, Y) :- menikah(P, X), saudara(P, Y).
+ipar(X, Y) :- saudara(X, P), menikah(P,Y).
 
 nenekmoyang(X, Y) :- orangtua(X, Y).
-nenekmoyang(X, Y) :- orangtua(P, Y), nenekmoyang(X, P).
