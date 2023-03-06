@@ -1,20 +1,18 @@
-meninggal(korban).
+meninggal(X) :- korban(X).
+sex(X, perempuan) :- korban(X).
 
-sex(korban, perempuan).
-
-mengenal(jono, korban).
-mengenal(suryo, korban).
-mengenal(korban, toni).
-mengenal(korban, joni).
-mengenal(pembunuh, korban).
+mengenal(jono, X) :- korban(X).
+mengenal(suryo, X) :- korban(X).
+mengenal(X, toni) :- korban(X).
+mengenal(X, jono) :- korban(X).
 
 korban(susi).
 
-membenci(jono, susi).
+membenci(jono, X) :- korban(X).
 membenci(suryo, toni).
 membenci(toni, jono).
 
-pembunuh(X) :- mengenal(korban, Y), membenci(Y, X).
+pembunuh(X) :- mengenal(Y, Z), mengenal(X, Y), membenci(Z, X).
 
 
 
